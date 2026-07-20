@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b3c4j72ogdokj"]
+
+[ext_resource type="Texture2D" uid="uid://c6g6evd6ytu5j" path="res://pillar.png" id="1_rjv88"]
+[ext_resource type="Script" uid="uid://buggsaw2v5spc" path="res://pillar.gd" id="1_tcmdu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iilk7"]
+size = Vector2(16, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rs3d"]
+size = Vector2(22, 98)
+
+[node name="pillar" type="Area2D" unique_id=1437866618]
+script = ExtResource("1_tcmdu")
+
+[node name="top" type="Sprite2D" parent="." unique_id=1624527950]
+position = Vector2(0, -106)
+texture = ExtResource("1_rjv88")
+
+[node name="top2" type="Sprite2D" parent="top" unique_id=1955939974]
+position = Vector2(0, -126)
+rotation = 3.1415927
+texture = ExtResource("1_rjv88")
+
+[node name="bottom" type="Sprite2D" parent="." unique_id=1831084886]
+position = Vector2(0, 96)
+rotation = 3.1415927
+texture = ExtResource("1_rjv88")
+
+[node name="bottom2" type="Sprite2D" parent="bottom" unique_id=1877147283]
+position = Vector2(-1.9582703e-05, -128)
+rotation = 3.1415927
+texture = ExtResource("1_rjv88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1707896957]
+position = Vector2(0, -106)
+shape = SubResource("RectangleShape2D_iilk7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=272768371]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_iilk7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=720595228]
+rect = Rect2(-61, -176, 122, 352)
+
+[node name="points" type="Area2D" parent="." unique_id=1894204028]
+position = Vector2(-12, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="points" unique_id=864555295]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2rs3d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="points" to="." method="_on_points_body_entered"]

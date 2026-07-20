@@ -1,0 +1,49 @@
+@icon("res://flappy bird.png")
+class_name Bird
+extends CharacterBody2D
+
+var started: bool = false
+@export var jump_velocity: float = 200
+var gravity: float
+@onready var pillar_spawn: Marker2D = %"pillar spawn"
+@onready var level: Level = $".."
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if started:
+		gravity = get_gravity().y
+		velocity.y += gravity*delta
+		rotation_degrees = clamp(-velocity.y/3, -60, 60)
+	
+	move_and_slide()
+	  
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		if !started:
+			level.points = 0
+			level.spawn_pillars = true
+			level.spawn_timer.start()
+			for child in pillar_spawn.get_children():
+				child.call_deferred("queue_free")
+			global_position.y = 160
+			started = true
+		velocity.y = -jump_velocity
+
+func death():
+	for child in pillar_spawn.get_children():
+		if child is Pillar:
+			var pillar: Pillar = child
+			pillar.stop()
+	started = false
+	gravity = 0
+	velocity = Vector2.ZERO
+	level.spawn_pillars = false
+	level.spawn_timer.stop()
+
+func _on_borders_body_entered(body: Node2D) -> void:
+	death()

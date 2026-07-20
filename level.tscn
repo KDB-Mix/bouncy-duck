@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cl6rltophjf4k"]
+
+[ext_resource type="PackedScene" uid="uid://bi4myrpdfc4ft" path="res://player.tscn" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://brjxsw2muiwos" path="res://level.gd" id="1_vonw3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iilk7"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2rs3d"]
+
+[node name="Level" type="Node2D" unique_id=496452959]
+script = ExtResource("1_vonw3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1586671477]
+show_behind_parent = true
+z_index = -100
+z_as_relative = false
+anchors_preset = -1
+offset_left = -147.0
+offset_top = -101.0
+offset_right = 330.0
+offset_bottom = 411.0
+color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=32673321]
+
+[node name="MarginContainer" type="MarginContainer" parent="ui" unique_id=1475974385]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="VBoxContainer" parent="ui/MarginContainer" unique_id=1528619887]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ui/MarginContainer/GridContainer" unique_id=1981024514]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="ui/MarginContainer/GridContainer/CenterContainer" unique_id=1496767619]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="Player" parent="." unique_id=608048337 instance=ExtResource("1_u52ul")]
+unique_name_in_owner = true
+position = Vector2(152, 160)
+jump_velocity = 250.0
+
+[node name="Borders" type="Area2D" parent="." unique_id=32350964]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders" unique_id=1658555074]
+position = Vector2(0, 321)
+shape = SubResource("WorldBoundaryShape2D_iilk7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders" unique_id=1302128587]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_2rs3d")
+
+[node name="pillar spawn" type="Marker2D" parent="." unique_id=2081866324]
+unique_name_in_owner = true
+position = Vector2(-20, 160)
+
+[node name="spawnTimer" type="Timer" parent="." unique_id=2038891319]
+wait_time = 2.5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2079678369]
+position = Vector2(90, 160)
+zoom = Vector2(3, 3)
+
+[connection signal="body_entered" from="Borders" to="Player" method="_on_borders_body_entered"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
