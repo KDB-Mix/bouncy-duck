@@ -7,6 +7,7 @@ var started: bool = false
 var gravity: float
 @onready var pillar_spawn: Marker2D = %"pillar spawn"
 @onready var level: Level = $".."
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 	if started:
 		gravity = get_gravity().y
 		velocity.y += gravity*delta
-		rotation_degrees = clamp(-velocity.y/3, -60, 60)
+		sprite_2d.rotation_degrees = clamp(-velocity.y/3, -60, 60)
 	
 	move_and_slide()
 	  
