@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		if !started:
+			level.celebration_text.visible = false
 			level.points = 0
 			level.spawn_pillars = true
 			level.spawn_timer.start()
@@ -45,6 +46,9 @@ func death():
 	velocity = Vector2.ZERO
 	level.spawn_pillars = false
 	level.spawn_timer.stop()
+	if SaveManager.save_score(level.points): 
+		level.cpu_particles_2d.emitting = true
+		level.celebration_text.visible = true
 
 func _on_borders_body_entered(body: Node2D) -> void:
 	death()

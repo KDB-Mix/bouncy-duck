@@ -6,6 +6,8 @@ var pillar_scene: PackedScene = preload("res://pillar.tscn")
 @onready var pillar_spawn: Marker2D = %"pillar spawn"
 @onready var spawn_timer: Timer = $spawnTimer
 @onready var score: Label = $ui/MarginContainer/GridContainer/CenterContainer/Score
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var celebration_text: RichTextLabel = $"ui/MarginContainer/GridContainer/CenterContainer2/Celebration Text"
 
 var spawn_pillars = false
 var points = 0
@@ -13,7 +15,7 @@ var points = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#spawn_timer.start()
-	pass
+	celebration_text.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

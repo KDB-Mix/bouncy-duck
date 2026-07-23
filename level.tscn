@@ -7,6 +7,14 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2rs3d"]
 
+[sub_resource type="Gradient" id="Gradient_vonw3"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 0)
+
+[sub_resource type="Curve" id="Curve_vonw3"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Level" type="Node2D" unique_id=496452959]
 script = ExtResource("1_vonw3")
 
@@ -41,6 +49,19 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "0"
 
+[node name="CenterContainer2" type="CenterContainer" parent="ui/MarginContainer/GridContainer" unique_id=961633853]
+layout_mode = 2
+
+[node name="Celebration Text" type="RichTextLabel" parent="ui/MarginContainer/GridContainer/CenterContainer2" unique_id=227514397]
+visible = false
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "NEW HIGH SCORE"
+fit_content = true
+autowrap_mode = 0
+
 [node name="Player" parent="." unique_id=608048337 instance=ExtResource("1_u52ul")]
 unique_name_in_owner = true
 position = Vector2(152, 160)
@@ -66,6 +87,29 @@ wait_time = 2.5
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2079678369]
 position = Vector2(90, 160)
 zoom = Vector2(3, 3)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2127627539]
+z_index = 100
+position = Vector2(90, 0)
+emitting = false
+amount = 50
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.1
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+damping_min = 80.198
+damping_max = 80.198
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0, 1, 0, 1)
+color_ramp = SubResource("Gradient_vonw3")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_vonw3")
 
 [connection signal="body_entered" from="Borders" to="Player" method="_on_borders_body_entered"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
