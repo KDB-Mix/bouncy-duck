@@ -52,3 +52,4 @@ func death():
 
 func _on_borders_body_entered(body: Node2D) -> void:
 	death()
+	

@@ -8,6 +8,9 @@ var pillar_scene: PackedScene = preload("res://pillar.tscn")
 @onready var score: Label = $ui/MarginContainer/GridContainer/CenterContainer/Score
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var celebration_text: RichTextLabel = $"ui/MarginContainer/GridContainer/CenterContainer2/Celebration Text"
+@onready var pause_menu: NinePatchRect = $"ui/Pause menu"
+@onready var pause: Button = $ui/Pause
+@onready var dark_bg: ColorRect = $"ui/Dark bg"
 
 var spawn_pillars = false
 var points = 0
@@ -21,6 +24,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	score.text = str(points)
+	pause.visible = !pause_menu.visible
+	dark_bg.visible = pause_menu.visible
 
 
 func _on_spawn_timer_timeout() -> void:
@@ -31,3 +36,28 @@ func _on_spawn_timer_timeout() -> void:
 		pillar.global_position.y = randf_range(60, 260)
 		#print("spawned")
 	spawn_timer.start()
+
+
+func _on_pause_button_down() -> void:
+	if !pause_menu.visible:
+		pause_menu.visible = true
+		get_tree().paused = true
+
+func _on_resume_button_down() -> void:
+	pause_menu.visible = false
+	get_tree().paused = false
+
+func pause_pressed():
+	if pause_menu.visible:
+		_on_resume_button_down()
+	else:
+		_on_pause_button_down()
+
+
+func _on_restart_button_down() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		pause_pressed()
