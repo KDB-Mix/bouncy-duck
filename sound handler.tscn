@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://w54ex1d6ev88"]
+
+[ext_resource type="Script" uid="uid://dqv2qla0uax6m" path="res://sound_handler.gd" id="1_1y8k3"]
+[ext_resource type="AudioStream" uid="uid://p04q5x7k85ih" path="res://boing.mp3" id="1_wmhmm"]
+[ext_resource type="AudioStream" uid="uid://biqpsdmg3pprr" path="res://pop.mp3" id="2_1y8k3"]
+[ext_resource type="AudioStream" uid="uid://dducd6387yqwn" path="res://partyblower.mp3" id="3_388c7"]
+
+[node name="SoundHandler" type="Node" unique_id=1414854086]
+process_mode = 3
+script = ExtResource("1_1y8k3")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=937840883]
+stream = ExtResource("1_wmhmm")
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=103194964]
+stream = ExtResource("2_1y8k3")
+bus = &"SFX"
+
+[node name="Celebrate" type="AudioStreamPlayer2D" parent="." unique_id=341080401]
+stream = ExtResource("3_388c7")
+bus = &"SFX"

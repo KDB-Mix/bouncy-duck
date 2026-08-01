@@ -14,11 +14,17 @@ config/name="Flappy bird"
 run/main_scene="uid://s0d5idldh87t"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="uid://dntt8b4kiskwn"
+
+[audio]
+
+buses/default_bus_layout="uid://0fw0q1ldph4q"
 
 [autoload]
 
 SaveManager="*uid://deffloj0p4kv7"
+SoundHandler="*uid://w54ex1d6ev88"
 
 [display]
 

@@ -14,4 +14,9 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
+	SoundHandler.click.play()
 	get_tree().change_scene_to_packed(LEVEL)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		get_tree().quit()

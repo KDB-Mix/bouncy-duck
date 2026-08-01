@@ -49,6 +49,7 @@ func death():
 	paused = false
 	if SaveManager.save_score(level.points): 
 		level.cpu_particles_2d.position.y = -(level.control.get_viewport_rect().size.y-960)/6
+		SoundHandler.celebrate.play()
 		level.cpu_particles_2d.emitting = true
 		level.celebration_text.visible = true
 
@@ -73,6 +74,7 @@ func Jump():
 			child.call_deferred("queue_free")
 		global_position.y = 160
 		started = true
+	SoundHandler.jump.play()
 	velocity.y = -jump_velocity
 
 
