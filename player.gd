@@ -48,6 +48,7 @@ func death():
 	level.spawn_timer.stop()
 	paused = false
 	if SaveManager.save_score(level.points): 
+		level.cpu_particles_2d.position.y = -(level.control.get_viewport_rect().size.y-960)/6
 		level.cpu_particles_2d.emitting = true
 		level.celebration_text.visible = true
 

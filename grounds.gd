@@ -11,7 +11,6 @@ var initial_pos: float
 func _ready() -> void:
 	grounds_container = get_parent()
 	initial_pos = position.x
-	print("spawned ", position, " ", initial_pos)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

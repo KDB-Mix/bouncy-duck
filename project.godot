@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flappy bird"
-run/main_scene="uid://cl6rltophjf4k"
+run/main_scene="uid://s0d5idldh87t"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://dntt8b4kiskwn"

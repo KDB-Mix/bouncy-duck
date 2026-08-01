@@ -13,6 +13,8 @@ var pillar_scene: PackedScene = preload("res://pillar.tscn")
 @onready var dark_bg: ColorRect = $"ui/Dark bg"
 @onready var player: Bird = %Player
 @onready var grounds_container: Node2D = $groundsContainer
+var MAIN_MENU = load("res://main_menu.tscn")
+@onready var control: Control = $Control
 
 const GROUNDS = preload("res://grounds.tscn")
 
@@ -22,6 +24,7 @@ var points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	cpu_particles_2d.position.y = -(control.get_viewport_rect().size.y-960)/6
 	#spawn_timer.start()
 	celebration_text.visible = false
 	for child in grounds_container.get_children():
@@ -76,3 +79,8 @@ func _input(event: InputEvent) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		pause_pressed()
+
+
+func _on_home_button_down() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(MAIN_MENU)

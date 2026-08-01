@@ -82,6 +82,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="VBoxContainer" parent="ui/MarginContainer" unique_id=1528619887]
 layout_mode = 2
@@ -102,9 +106,10 @@ layout_mode = 2
 visible = false
 clip_contents = false
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_1ainy")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "NEW HIGH SCORE"
+text = "[wave amp=50 freq=2]NEW HIGH SCORE[/wave]\""
 fit_content = true
 autowrap_mode = 0
 
@@ -266,8 +271,15 @@ hue_variation_curve = SubResource("Curve_vonw3")
 [node name="grounds2" parent="groundsContainer" unique_id=1579618565 instance=ExtResource("8_km5ld")]
 position = Vector2(-280, 0)
 
+[node name="Control" type="Control" parent="." unique_id=288901506]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="button_down" from="ui/touch" to="Player" method="_on_touch_button_down"]
 [connection signal="button_down" from="ui/Pause menu/VBoxContainer/CenterContainer/Resume" to="." method="_on_resume_button_down"]
+[connection signal="button_down" from="ui/Pause menu/VBoxContainer/HBoxContainer/CenterContainer/Home" to="." method="_on_home_button_down"]
 [connection signal="button_down" from="ui/Pause menu/VBoxContainer/HBoxContainer/CenterContainer2/Restart" to="." method="_on_restart_button_down"]
 [connection signal="button_down" from="ui/Pause" to="." method="_on_pause_button_down"]
 [connection signal="body_entered" from="Borders" to="Player" method="_on_borders_body_entered"]
