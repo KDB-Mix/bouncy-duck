@@ -30,6 +30,9 @@ func _on_body_entered(body: Node2D) -> void:
 func stop():
 	multiplier = 0
 
+func resume():
+	multiplier = 1
+
 
 func _on_points_body_entered(body: Node2D) -> void:
 	if body is Bird:

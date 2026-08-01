@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://da32gvv73uqdy" path="res://flappy-bird-texts.png" id="3_f2txt"]
 [ext_resource type="Texture2D" uid="uid://b6iqxudcrk33f" path="res://ui border.png" id="3_oi3di"]
 [ext_resource type="Texture2D" uid="uid://gp3h1btmddp8" path="res://buttons.png" id="4_0b4ue"]
+[ext_resource type="Shader" uid="uid://be00nt7he8f0q" path="res://black-button.gdshader" id="6_km5ld"]
+[ext_resource type="PackedScene" uid="uid://b4vxi87rj8wq8" path="res://grounds.tscn" id="8_km5ld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4wgq"]
 atlas = ExtResource("3_f2txt")
@@ -22,6 +24,9 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2txt"]
 atlas = ExtResource("4_0b4ue")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2t4f"]
+shader = ExtResource("6_km5ld")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_quixk"]
 atlas = ExtResource("4_0b4ue")
@@ -43,6 +48,19 @@ point_count = 3
 process_mode = 3
 script = ExtResource("1_vonw3")
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1982886945]
+show_behind_parent = true
+z_index = -100
+z_as_relative = false
+anchors_preset = -1
+offset_left = -152.0
+offset_top = -914.0
+offset_right = 325.0
+offset_bottom = 1600.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.023529412, 0.8117647, 0, 1)
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1586671477]
 show_behind_parent = true
 z_index = -100
@@ -52,6 +70,8 @@ offset_left = -147.0
 offset_top = -101.0
 offset_right = 330.0
 offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=32673321]
@@ -87,6 +107,15 @@ bbcode_enabled = true
 text = "NEW HIGH SCORE"
 fit_content = true
 autowrap_mode = 0
+
+[node name="touch" type="Button" parent="ui" unique_id=17406521]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Dark bg" type="ColorRect" parent="ui" unique_id=52017491]
 process_mode = 3
@@ -164,6 +193,7 @@ flat = true
 
 [node name="Pause" type="Button" parent="ui" unique_id=2103114901]
 process_mode = 1
+material = SubResource("ShaderMaterial_i2t4f")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -201,6 +231,7 @@ process_mode = 1
 wait_time = 2.5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2079678369]
+modulate = Color(0.023529412, 0.8117647, 0, 1)
 position = Vector2(90, 160)
 zoom = Vector2(3, 3)
 
@@ -228,6 +259,14 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 hue_variation_curve = SubResource("Curve_vonw3")
 
+[node name="groundsContainer" type="Node2D" parent="." unique_id=1089543664]
+
+[node name="grounds" parent="groundsContainer" unique_id=1255960815 instance=ExtResource("8_km5ld")]
+
+[node name="grounds2" parent="groundsContainer" unique_id=1579618565 instance=ExtResource("8_km5ld")]
+position = Vector2(-280, 0)
+
+[connection signal="button_down" from="ui/touch" to="Player" method="_on_touch_button_down"]
 [connection signal="button_down" from="ui/Pause menu/VBoxContainer/CenterContainer/Resume" to="." method="_on_resume_button_down"]
 [connection signal="button_down" from="ui/Pause menu/VBoxContainer/HBoxContainer/CenterContainer2/Restart" to="." method="_on_restart_button_down"]
 [connection signal="button_down" from="ui/Pause" to="." method="_on_pause_button_down"]

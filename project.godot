@@ -12,8 +12,9 @@ config_version=5
 
 config/name="Flappy bird"
 run/main_scene="uid://cl6rltophjf4k"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dntt8b4kiskwn"
 
 [autoload]
 
@@ -24,6 +25,7 @@ SaveManager="*uid://deffloj0p4kv7"
 window/size/viewport_width=540
 window/size/viewport_height=960
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 
 [dotnet]
@@ -33,6 +35,10 @@ project/assembly_name="Flappy bird"
 [gui]
 
 theme/default_font_multichannel_signed_distance_field=true
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
@@ -46,3 +52,4 @@ textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
