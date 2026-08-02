@@ -59,6 +59,7 @@ offset_right = 325.0
 offset_bottom = 1600.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 2
 color = Color(0.023529412, 0.8117647, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1586671477]
@@ -72,6 +73,7 @@ offset_right = 330.0
 offset_bottom = 411.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 2
 color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=32673321]
@@ -82,6 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -89,23 +92,28 @@ theme_override_constants/margin_bottom = 10
 
 [node name="GridContainer" type="VBoxContainer" parent="ui/MarginContainer" unique_id=1528619887]
 layout_mode = 2
+layout_direction = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="ui/MarginContainer/GridContainer" unique_id=1981024514]
 layout_mode = 2
+layout_direction = 2
 
 [node name="Score" type="Label" parent="ui/MarginContainer/GridContainer/CenterContainer" unique_id=1496767619]
 layout_mode = 2
+layout_direction = 2
 theme_override_fonts/font = ExtResource("2_1ainy")
 theme_override_font_sizes/font_size = 48
 text = "0"
 
 [node name="CenterContainer2" type="CenterContainer" parent="ui/MarginContainer/GridContainer" unique_id=961633853]
 layout_mode = 2
+layout_direction = 2
 
 [node name="Celebration Text" type="RichTextLabel" parent="ui/MarginContainer/GridContainer/CenterContainer2" unique_id=227514397]
 visible = false
 clip_contents = false
 layout_mode = 2
+layout_direction = 2
 theme_override_fonts/normal_font = ExtResource("2_1ainy")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
@@ -120,6 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 2
 flat = true
 
 [node name="Dark bg" type="ColorRect" parent="ui" unique_id=52017491]
@@ -131,6 +140,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 2
 color = Color(0, 0, 0, 0.6509804)
 
 [node name="Pause menu" type="NinePatchRect" parent="ui" unique_id=1594788378]
@@ -152,6 +162,7 @@ scale = Vector2(3, 3)
 pivot_offset = Vector2(53, 56)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+layout_direction = 2
 texture = ExtResource("3_oi3di")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -162,37 +173,46 @@ patch_margin_bottom = 8
 layout_mode = 0
 offset_right = 106.0
 offset_bottom = 112.0
+layout_direction = 2
 
 [node name="TextureRect" type="TextureRect" parent="ui/Pause menu/VBoxContainer" unique_id=702768424]
 layout_mode = 2
+layout_direction = 2
 texture = SubResource("AtlasTexture_t4wgq")
 
 [node name="CenterContainer" type="CenterContainer" parent="ui/Pause menu/VBoxContainer" unique_id=770268791]
 layout_mode = 2
 size_flags_horizontal = 4
+layout_direction = 2
 
 [node name="Resume" type="Button" parent="ui/Pause menu/VBoxContainer/CenterContainer" unique_id=394184475]
 layout_mode = 2
+layout_direction = 2
 icon = SubResource("AtlasTexture_iilk7")
 flat = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui/Pause menu/VBoxContainer" unique_id=2054350266]
 layout_mode = 2
 size_flags_horizontal = 4
+layout_direction = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="ui/Pause menu/VBoxContainer/HBoxContainer" unique_id=153218117]
 layout_mode = 2
+layout_direction = 2
 
 [node name="Home" type="Button" parent="ui/Pause menu/VBoxContainer/HBoxContainer/CenterContainer" unique_id=935518815]
 layout_mode = 2
+layout_direction = 2
 icon = SubResource("AtlasTexture_2rs3d")
 flat = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="ui/Pause menu/VBoxContainer/HBoxContainer" unique_id=402311869]
 layout_mode = 2
+layout_direction = 2
 
 [node name="Restart" type="Button" parent="ui/Pause menu/VBoxContainer/HBoxContainer/CenterContainer2" unique_id=1611512827]
 layout_mode = 2
+layout_direction = 2
 icon = SubResource("AtlasTexture_f2txt")
 flat = true
 
@@ -207,6 +227,7 @@ offset_bottom = 40.0
 grow_horizontal = 0
 scale = Vector2(3, 3)
 pivot_offset = Vector2(40, 0)
+layout_direction = 2
 icon = SubResource("AtlasTexture_quixk")
 flat = true
 
@@ -276,6 +297,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+layout_direction = 2
 
 [connection signal="button_down" from="ui/touch" to="Player" method="_on_touch_button_down"]
 [connection signal="button_down" from="ui/Pause menu/VBoxContainer/CenterContainer/Resume" to="." method="_on_resume_button_down"]
