@@ -15,7 +15,7 @@ run/main_scene="uid://s0d5idldh87t"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="uid://dntt8b4kiskwn"
+config/icon="uid://dds1t20atpjbr"
 
 [audio]
 

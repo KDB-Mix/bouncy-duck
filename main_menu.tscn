@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://drojcx11tii48" path="res://DotGothic16-Regular.ttf" id="3_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://da32gvv73uqdy" path="res://flappy-bird-texts.png" id="4_glbon"]
 [ext_resource type="Texture2D" uid="uid://gp3h1btmddp8" path="res://buttons.png" id="4_jix8l"]
-[ext_resource type="Texture2D" uid="uid://dntt8b4kiskwn" path="res://flappy bird.png" id="6_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://dds1t20atpjbr" path="res://flappy bird.png" id="6_nlkkf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iilk7"]
 atlas = ExtResource("4_glbon")
