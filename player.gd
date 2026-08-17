@@ -56,6 +56,8 @@ func death():
 		SoundHandler.celebrate.play()
 		level.cpu_particles_2d.emitting = true
 		level.celebration_text.visible = true
+	else:
+		SoundHandler.lost.play(.3)
 
 func _on_borders_body_entered(body: Node2D) -> void:
 	death()
@@ -82,7 +84,7 @@ func Jump():
 			child.call_deferred("queue_free")
 		global_position.y = 160
 		started = true
-	SoundHandler.jump.play()
+	SoundHandler.jump.play(.06)
 	velocity.y = -jump_velocity
 
 

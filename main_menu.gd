@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
-	SoundHandler.click.play()
+	SoundHandler.click.play(.05)
 	get_tree().change_scene_to_packed(LEVEL)
 
 func _notification(what: int) -> void:
@@ -25,4 +25,5 @@ func _notification(what: int) -> void:
 
 
 func _on_skins_button_down() -> void:
+	SoundHandler.click.play(.05)
 	get_tree().change_scene_to_packed(skin_select)

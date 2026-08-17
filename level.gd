@@ -53,14 +53,14 @@ func _on_spawn_timer_timeout() -> void:
 
 func _on_pause_button_down() -> void:
 	if !pause_menu.visible:
-		SoundHandler.click.play()
+		SoundHandler.click.play(.05)
 		pause_menu.visible = true
 		get_tree().paused = true
 		if !player.paused && player.started:
 			player.Pause()
 
 func _on_resume_button_down() -> void:
-	SoundHandler.click.play()
+	SoundHandler.click.play(.05)
 	pause_menu.visible = false
 	get_tree().paused = false
 
@@ -72,7 +72,7 @@ func pause_pressed():
 
 
 func _on_restart_button_down() -> void:
-	SoundHandler.click.play()
+	SoundHandler.click.play(.05)
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
@@ -86,7 +86,7 @@ func _notification(what: int) -> void:
 
 
 func _on_home_button_down() -> void:
-	SoundHandler.click.play()
+	SoundHandler.click.play(.05)
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(MAIN_MENU)
 	

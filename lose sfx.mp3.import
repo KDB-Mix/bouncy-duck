@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c761fmt20bsy1"
+path="res://.godot/imported/lose sfx.mp3-9daea75dc868d98389d75493a030104e.mp3str"
+
+[deps]
+
+source_file="res://lose sfx.mp3"
+dest_files=["res://.godot/imported/lose sfx.mp3-9daea75dc868d98389d75493a030104e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

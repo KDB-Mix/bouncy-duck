@@ -13,27 +13,32 @@ func _process(delta: float) -> void:
 
 
 func _on_home_button_down() -> void:
+	SoundHandler.click.play(.05)
 	get_tree().change_scene_to_packed(main_menu)
 
 
 func _on_bird_1_button_down() -> void:
+	SoundHandler.click.play(.05)
 	SaveManager.saveData[SaveManager.skin_key] = 0
 	SaveManager.save_file()
 	_on_home_button_down()
 
 
 func _on_bird_2_button_down() -> void:
+	SoundHandler.click.play(.05)
 	SaveManager.saveData[SaveManager.skin_key] = 1
 	SaveManager.save_file()
 	_on_home_button_down()
 
 func _on_bird_3_button_down() -> void:
+	SoundHandler.click.play(.05)
 	SaveManager.saveData[SaveManager.skin_key] = 2
 	SaveManager.save_file()
 	_on_home_button_down()
 
 
 func _on_bird_4_button_down() -> void:
+	SoundHandler.click.play(.05)
 	SaveManager.saveData[SaveManager.skin_key] = 3
 	SaveManager.save_file()
 	_on_home_button_down()
