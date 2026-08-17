@@ -10,21 +10,21 @@ var gravity: float
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var pause: Button = $"../ui/Pause"
 @onready var grounds_container: Node2D = $"../groundsContainer"
+@onready var bg: Node2D = $"../BG"
 
 var paused: bool
 var lastVelocity: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	sprite_2d.texture.region.position.x = 32*SaveManager.saveData[SaveManager.skin_key]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if started && !paused:
 		gravity = get_gravity().y
 		velocity.y += gravity*delta
-		sprite_2d.rotation_degrees = clamp(-velocity.y/3, -60, 60)
+		sprite_2d.rotation_degrees = clamp(-velocity.y/3, -50, 50)
 	
 	move_and_slide()
 	  
@@ -38,9 +38,13 @@ func death():
 			var pillar: Pillar = child
 			pillar.stop()
 	for child in grounds_container.get_children():
-			if child is Ground:
-				var ground: Ground = child
-				ground.stop()
+		if child is Ground:
+			var ground: Ground = child
+			ground.stop()
+	for child in bg.get_children():
+		if child is BG:
+			var background: BG = child
+			background.stop()
 	started = false
 	gravity = 0
 	velocity = Vector2.ZERO
@@ -66,6 +70,10 @@ func Jump():
 			if child is Ground:
 				var ground: Ground = child
 				ground.resume()
+		for child in bg.get_children():
+			if child is BG:
+				var background: BG = child
+				background.resume()
 		level.celebration_text.visible = false
 		level.points = 0
 		level.spawn_pillars = true

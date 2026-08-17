@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position.x += delta*50*multiplier
+	global_position.x += delta*100*multiplier
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

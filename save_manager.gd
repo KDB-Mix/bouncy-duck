@@ -4,6 +4,7 @@ var filePath = "user://save.dat"
 var saveData: Dictionary = {}
 
 const score_key = "SCORE"
+const skin_key = "SKIN"
 const key_base64 = "anVzdCBhIGxpbCBzZWN1cmUgcGFzcw=="
 
 
@@ -25,6 +26,7 @@ func load_data():
 		initialize_defaults()
 func initialize_defaults():
 	saveData.get_or_add(score_key, 0)
+	saveData.get_or_add(skin_key, 0)
 	save_file()
 
 func save_file():

@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dds1t20atpjbr" path="res://flappy bird.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://crm1uxlu8c1u6" path="res://player.gd" id="1_onrkg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 
 [node name="Player" type="CharacterBody2D" unique_id=519085517]
@@ -10,7 +14,7 @@ script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1809334772]
 position = Vector2(-1, 0)
-texture = ExtResource("1_4flbx")
+texture = SubResource("AtlasTexture_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=950378433]
 position = Vector2(-1, 0)

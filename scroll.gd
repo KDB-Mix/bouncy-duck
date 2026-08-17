@@ -1,25 +1,27 @@
-class_name Ground
-extends Node2D
+class_name BG
+extends Sprite2D
+
+@export var speed: float = 20
 @onready var level: Level = $"../.."
-var grounds_container: Node2D
+@onready var bg: Node2D
 var spawned_clone = false
 
-var multiplier = 1.0
+var multiplier = 0.0
 var initial_pos: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	grounds_container = get_parent()
+	bg = get_parent()
 	initial_pos = position.x
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x+=delta*100*multiplier
-	if !spawned_clone && position.x >= 0 && initial_pos < 0:
-		var ground: Ground = duplicate()
-		ground.position.x = position.x-280
-		ground.position.y = 0
-		grounds_container.add_child(ground)
+	position.x+=delta*speed*multiplier
+	if !spawned_clone && position.x >= 0:
+		var background: BG = duplicate()
+		background.position.x = position.x-540
+		background.position.y = 0
+		bg.add_child(background)
 		spawned_clone = true
 		
 		

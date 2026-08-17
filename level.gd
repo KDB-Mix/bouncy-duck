@@ -13,6 +13,7 @@ var pillar_scene: PackedScene = preload("res://pillar.tscn")
 @onready var dark_bg: ColorRect = $"ui/Dark bg"
 @onready var player: Bird = %Player
 @onready var grounds_container: Node2D = $groundsContainer
+@onready var bg: Node2D = $BG
 var MAIN_MENU = load("res://main_menu.tscn")
 @onready var control: Control = $Control
 
@@ -88,3 +89,4 @@ func _on_home_button_down() -> void:
 	SoundHandler.click.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(MAIN_MENU)
+	

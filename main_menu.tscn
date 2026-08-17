@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://b4vxi87rj8wq8" path="res://grounds.tscn" id="2_7vrkn"]
 [ext_resource type="FontFile" uid="uid://drojcx11tii48" path="res://DotGothic16-Regular.ttf" id="3_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://da32gvv73uqdy" path="res://flappy-bird-texts.png" id="4_glbon"]
-[ext_resource type="Texture2D" uid="uid://gp3h1btmddp8" path="res://buttons.png" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://bvt7c3h2d7qfj" path="res://buttons-scaled.png" id="4_qe12f"]
+[ext_resource type="Texture2D" uid="uid://day3gkxdmd1y1" path="res://play-button-big.png" id="5_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://dds1t20atpjbr" path="res://flappy bird.png" id="6_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://dtptn6y0htugp" path="res://Background-parallax-mountains.png" id="7_qe12f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iilk7"]
 atlas = ExtResource("4_glbon")
@@ -15,20 +17,32 @@ region = Rect2(128, 0, 128, 32)
 atlas = ExtResource("4_glbon")
 region = Rect2(256, 0, 128, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fu7sn"]
-atlas = ExtResource("4_jix8l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
+atlas = ExtResource("4_qe12f")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("6_nlkkf")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apvqp"]
+atlas = ExtResource("7_qe12f")
+region = Rect2(0, 0, 540, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("7_qe12f")
+region = Rect2(540, 0, 540, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
+atlas = ExtResource("7_qe12f")
+region = Rect2(1080, 0, 540, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
+atlas = ExtResource("7_qe12f")
+region = Rect2(1620, 0, 540, 320)
 
 [node name="Main menu" type="Node2D" unique_id=2134219225]
 script = ExtResource("1_06t4h")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=810748791]
-offset_left = -39.0
-offset_top = -1000.0
-offset_right = 240.0
-offset_bottom = 1000.0
-layout_direction = 2
-color = Color(0, 0.58431375, 0.77254903, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1507350357]
 
@@ -40,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 layout_direction = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
@@ -79,14 +93,26 @@ layout_direction = 2
 texture = SubResource("AtlasTexture_2rs3d")
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=917126607]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1144246203]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="skins" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1800851550]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.3
+icon = SubResource("AtlasTexture_qe12f")
+flat = true
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=917126607]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 layout_direction = 2
-icon = SubResource("AtlasTexture_fu7sn")
+icon = ExtResource("5_8qtwp")
 flat = true
 icon_alignment = 1
-expand_icon = true
 
 [node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1225422707]
 layout_mode = 2
@@ -98,10 +124,59 @@ script = null
 
 [node name="FlappyBird" type="Sprite2D" parent="." unique_id=1633462495]
 position = Vector2(151, 160)
-texture = ExtResource("6_nlkkf")
+texture = SubResource("AtlasTexture_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1754027789]
 position = Vector2(90, 160)
 zoom = Vector2(3, 3)
 
-[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
+[node name="BG" type="Node2D" parent="." unique_id=367496245]
+z_index = -999
+
+[node name="ColorRect2" type="ColorRect" parent="BG" unique_id=82440187]
+show_behind_parent = true
+z_index = -100
+anchors_preset = -1
+offset_left = -152.0
+offset_top = -914.0
+offset_right = 325.0
+offset_bottom = 1600.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 2
+color = Color(0.023529412, 0.8117647, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=931032655]
+show_behind_parent = true
+z_index = -100
+anchors_preset = -1
+offset_left = -147.0
+offset_top = -101.0
+offset_right = 330.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 2
+color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
+
+[node name="Background 1" type="Sprite2D" parent="BG" unique_id=351656920]
+texture = SubResource("AtlasTexture_apvqp")
+offset = Vector2(0, 180)
+
+[node name="Background 2" type="Sprite2D" parent="BG" unique_id=80839207]
+z_index = 1
+texture = SubResource("AtlasTexture_8qtwp")
+offset = Vector2(0, 180)
+
+[node name="Background 3" type="Sprite2D" parent="BG" unique_id=1242093218]
+z_index = 2
+texture = SubResource("AtlasTexture_dy7ct")
+offset = Vector2(0, 180)
+
+[node name="Background 4" type="Sprite2D" parent="BG" unique_id=513275417]
+z_index = 3
+texture = SubResource("AtlasTexture_0o4t1")
+offset = Vector2(0, 180)
+
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/skins" to="." method="_on_skins_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_down"]

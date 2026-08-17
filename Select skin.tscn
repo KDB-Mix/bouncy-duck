@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://bos1lcfs7deet"]
+
+[ext_resource type="Script" uid="uid://3p6jtxaxptet" path="res://select_skin.gd" id="1_fcjlf"]
+[ext_resource type="Texture2D" uid="uid://bn5dtg17pwi21" path="res://flappy bird-big.png" id="3_bblke"]
+[ext_resource type="Texture2D" uid="uid://bvt7c3h2d7qfj" path="res://buttons-scaled.png" id="4_ecvip"]
+[ext_resource type="PackedScene" uid="uid://b4vxi87rj8wq8" path="res://grounds.tscn" id="6_xmtu7"]
+[ext_resource type="Texture2D" uid="uid://dtptn6y0htugp" path="res://Background-parallax-mountains.png" id="8_x32ef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k4wn"]
+atlas = ExtResource("4_ecvip")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcjlf"]
+atlas = ExtResource("3_bblke")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bblke"]
+atlas = ExtResource("3_bblke")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b71u0"]
+atlas = ExtResource("3_bblke")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v1ec"]
+atlas = ExtResource("3_bblke")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apvqp"]
+atlas = ExtResource("8_x32ef")
+region = Rect2(0, 0, 540, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtwp"]
+atlas = ExtResource("8_x32ef")
+region = Rect2(540, 0, 540, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy7ct"]
+atlas = ExtResource("8_x32ef")
+region = Rect2(1080, 0, 540, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o4t1"]
+atlas = ExtResource("8_x32ef")
+region = Rect2(1620, 0, 540, 320)
+
+[node name="Skin select" type="Node2D" unique_id=2134219225]
+script = ExtResource("1_fcjlf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1507350357]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=219506390]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=2085334220]
+layout_mode = 2
+layout_direction = 2
+
+[node name="Home" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1800851550]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.3
+icon = SubResource("AtlasTexture_0k4wn")
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1144246203]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Bird 1" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=811802184]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = SubResource("AtlasTexture_fcjlf")
+flat = true
+
+[node name="Bird 2" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1009594406]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = SubResource("AtlasTexture_bblke")
+flat = true
+
+[node name="Bird 3" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1074258909]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = SubResource("AtlasTexture_b71u0")
+flat = true
+
+[node name="Bird 4" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1221693543]
+layout_mode = 2
+size_flags_horizontal = 6
+icon = SubResource("AtlasTexture_4v1ec")
+flat = true
+
+[node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1225422707]
+layout_mode = 2
+size_flags_vertical = 3
+layout_direction = 2
+
+[node name="grounds" parent="." unique_id=1255960815 instance=ExtResource("6_xmtu7")]
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1754027789]
+position = Vector2(90, 160)
+zoom = Vector2(3, 3)
+
+[node name="BG" type="Node2D" parent="." unique_id=367496245]
+z_index = -999
+
+[node name="ColorRect2" type="ColorRect" parent="BG" unique_id=82440187]
+show_behind_parent = true
+z_index = -100
+anchors_preset = -1
+offset_left = -152.0
+offset_top = -914.0
+offset_right = 325.0
+offset_bottom = 1600.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 2
+color = Color(0.023529412, 0.8117647, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=931032655]
+show_behind_parent = true
+z_index = -100
+anchors_preset = -1
+offset_left = -147.0
+offset_top = -101.0
+offset_right = 330.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 2
+color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
+
+[node name="Background 1" type="Sprite2D" parent="BG" unique_id=351656920]
+texture = SubResource("AtlasTexture_apvqp")
+offset = Vector2(0, 180)
+
+[node name="Background 2" type="Sprite2D" parent="BG" unique_id=80839207]
+z_index = 1
+texture = SubResource("AtlasTexture_8qtwp")
+offset = Vector2(0, 180)
+
+[node name="Background 3" type="Sprite2D" parent="BG" unique_id=1242093218]
+z_index = 2
+texture = SubResource("AtlasTexture_dy7ct")
+offset = Vector2(0, 180)
+
+[node name="Background 4" type="Sprite2D" parent="BG" unique_id=513275417]
+z_index = 3
+texture = SubResource("AtlasTexture_0o4t1")
+offset = Vector2(0, 180)
+
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/Home" to="." method="_on_home_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Bird 1" to="." method="_on_bird_1_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Bird 2" to="." method="_on_bird_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Bird 3" to="." method="_on_bird_3_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Bird 4" to="." method="_on_bird_4_button_down"]
