@@ -17,7 +17,8 @@ var lastVelocity: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sprite_2d.texture.region.position.x = 32*SaveManager.saveData[SaveManager.skin_key]
+	#sprite_2d.texture.region.position.x = 32*SaveManager.saveData[SaveManager.skin_key]
+	sprite_2d.frame = SaveManager.saveData[SaveManager.skin_key]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -102,6 +103,10 @@ func Pause():
 			if child is Ground:
 				var ground: Ground = child
 				ground.stop()
+		for child in bg.get_children():
+			if child is BG:
+				var background: BG = child
+				background.stop()
 		#stop
 		gravity = 0
 		lastVelocity = velocity
@@ -121,6 +126,10 @@ func Pause():
 			if child is Ground:
 				var ground: Ground = child
 				ground.resume()
+		for child in bg.get_children():
+			if child is BG:
+				var background: BG = child
+				background.resume()
 		#keep moving
 		velocity = lastVelocity
 		#keep spawning

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://s0d5idldh87t"]
 
 [ext_resource type="Script" uid="uid://baorc25fe0wgg" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://gp3h1btmddp8" path="res://buttons.png" id="2_0k4wn"]
 [ext_resource type="PackedScene" uid="uid://b4vxi87rj8wq8" path="res://grounds.tscn" id="2_7vrkn"]
 [ext_resource type="FontFile" uid="uid://drojcx11tii48" path="res://DotGothic16-Regular.ttf" id="3_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://da32gvv73uqdy" path="res://flappy-bird-texts.png" id="4_glbon"]
@@ -8,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://day3gkxdmd1y1" path="res://play-button-big.png" id="5_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://dds1t20atpjbr" path="res://flappy bird.png" id="6_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://dtptn6y0htugp" path="res://Background-parallax-mountains.png" id="7_qe12f"]
+[ext_resource type="Texture2D" uid="uid://dx58iis84cdj4" path="res://flappy bird normal.png" id="8_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://d3gu7qaro2xyc" path="res://Sun.png" id="9_0k4wn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iilk7"]
 atlas = ExtResource("4_glbon")
@@ -21,9 +24,13 @@ region = Rect2(256, 0, 128, 32)
 atlas = ExtResource("4_qe12f")
 region = Rect2(384, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("6_nlkkf")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_quixk"]
+atlas = ExtResource("2_0k4wn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iilk7"]
+diffuse_texture = ExtResource("6_nlkkf")
+normal_texture = ExtResource("8_0o4t1")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apvqp"]
 atlas = ExtResource("7_qe12f")
@@ -119,12 +126,26 @@ layout_mode = 2
 size_flags_vertical = 3
 layout_direction = 2
 
+[node name="Settings" type="Button" parent="CanvasLayer" unique_id=1936402277]
+anchors_preset = -1
+anchor_left = 0.97
+anchor_top = 0.06
+anchor_right = 0.97
+anchor_bottom = 0.06
+offset_left = -120.0
+offset_right = -80.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+icon = SubResource("AtlasTexture_quixk")
+flat = true
+
 [node name="grounds" parent="." unique_id=1255960815 instance=ExtResource("2_7vrkn")]
 script = null
 
 [node name="FlappyBird" type="Sprite2D" parent="." unique_id=1633462495]
 position = Vector2(151, 160)
-texture = SubResource("AtlasTexture_onrkg")
+texture = SubResource("CanvasTexture_iilk7")
+hframes = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1754027789]
 position = Vector2(90, 160)
@@ -159,6 +180,15 @@ grow_vertical = 2
 layout_direction = 2
 color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=185279183]
+z_index = -3
+position = Vector2(52, 79)
+texture = ExtResource("9_0k4wn")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="BG/Sprite2D" unique_id=1451711878]
+energy = 0.3
+height = 0.15
+
 [node name="Background 1" type="Sprite2D" parent="BG" unique_id=351656920]
 texture = SubResource("AtlasTexture_apvqp")
 offset = Vector2(0, 180)
@@ -180,3 +210,4 @@ offset = Vector2(0, 180)
 
 [connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/skins" to="." method="_on_skins_button_down"]
 [connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Settings" to="." method="_on_settings_button_down"]

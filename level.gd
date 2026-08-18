@@ -16,6 +16,7 @@ var pillar_scene: PackedScene = preload("res://pillar.tscn")
 @onready var bg: Node2D = $BG
 var MAIN_MENU = load("res://main_menu.tscn")
 @onready var control: Control = $Control
+@onready var directional_light_2d: DirectionalLight2D = $BG/Sprite2D/DirectionalLight2D
 
 const GROUNDS = preload("res://grounds.tscn")
 
@@ -32,6 +33,7 @@ func _ready() -> void:
 			if child is Ground:
 				var ground: Ground = child
 				ground.stop()
+	directional_light_2d.enabled = SaveManager.saveData[SaveManager.light_key]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

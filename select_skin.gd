@@ -1,10 +1,11 @@
 extends Node2D
 var main_menu: PackedScene = load("res://main_menu.tscn")
+@onready var directional_light_2d: DirectionalLight2D = $BG/Sprite2D/DirectionalLight2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(SaveManager.saveData)
+	directional_light_2d.enabled = SaveManager.saveData[SaveManager.light_key]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

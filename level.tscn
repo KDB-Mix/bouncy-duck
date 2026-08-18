@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://gp3h1btmddp8" path="res://buttons.png" id="4_0b4ue"]
 [ext_resource type="Shader" uid="uid://be00nt7he8f0q" path="res://black-button.gdshader" id="6_km5ld"]
 [ext_resource type="PackedScene" uid="uid://b4vxi87rj8wq8" path="res://grounds.tscn" id="8_km5ld"]
+[ext_resource type="Texture2D" uid="uid://d3gu7qaro2xyc" path="res://Sun.png" id="9_8b0r0"]
 [ext_resource type="PackedScene" uid="uid://bysc41kb81rx2" path="res://background_1.tscn" id="9_i2t4f"]
 [ext_resource type="PackedScene" uid="uid://c85sf6htb2kct" path="res://background_2.tscn" id="10_8cye3"]
 [ext_resource type="PackedScene" uid="uid://dwj1royenj2u6" path="res://background_3.tscn" id="11_2orkt"]
@@ -304,6 +305,15 @@ grow_horizontal = 2
 grow_vertical = 2
 layout_direction = 2
 color = Color(2.5027991e-06, 0.5827584, 0.7735212, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=984040270]
+z_index = -3
+position = Vector2(52, 79)
+texture = ExtResource("9_8b0r0")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="BG/Sprite2D" unique_id=1386201138]
+energy = 0.3
+height = 0.15
 
 [node name="Background 1" parent="BG" unique_id=351656920 instance=ExtResource("9_i2t4f")]
 

@@ -16,11 +16,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x+=delta*speed*multiplier
-	if !spawned_clone && position.x >= 0:
+	global_position.x+=delta*speed*multiplier
+	if !spawned_clone && position.x >= -550:
 		var background: BG = duplicate()
-		background.position.x = position.x-540
-		background.position.y = 0
+		background.global_position.x = global_position.x-540
+		background.global_position.y = 0
 		bg.add_child(background)
 		spawned_clone = true
 		

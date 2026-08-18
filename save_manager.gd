@@ -5,6 +5,8 @@ var saveData: Dictionary = {}
 
 const score_key = "SCORE"
 const skin_key = "SKIN"
+const volume_key = "VOLUME"
+const light_key = "LIGHT"
 const key_base64 = "anVzdCBhIGxpbCBzZWN1cmUgcGFzcw=="
 
 
@@ -27,6 +29,9 @@ func load_data():
 func initialize_defaults():
 	saveData.get_or_add(score_key, 0)
 	saveData.get_or_add(skin_key, 0)
+	saveData.get_or_add(volume_key, 100)
+	saveData.get_or_add(light_key, true)
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), saveData[volume_key]/100)
 	save_file()
 
 func save_file():
