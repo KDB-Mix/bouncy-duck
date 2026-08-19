@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	call_deferred("queue_free")
+	#call_deferred("queue_free")
+	GlobalValues.destroyed_pillars.append(self)
 
 
 func _on_body_entered(body: Node2D) -> void:

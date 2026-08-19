@@ -10,22 +10,21 @@ var initial_pos: float
 func _ready() -> void:
 	grounds_container = get_parent()
 	initial_pos = position.x
+	#if !spawned_clone && position.x >= -300 && initial_pos < 0:
+		#var ground: Ground = duplicate()
+		#ground.position.x = position.x-280
+		#ground.position.y = 0
+		#grounds_container.add_child(ground)
+		#spawned_clone = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x+=delta*100*multiplier
-	if !spawned_clone && position.x >= 0 && initial_pos < 0:
-		var ground: Ground = duplicate()
-		ground.position.x = position.x-280
-		ground.position.y = 0
-		grounds_container.add_child(ground)
-		spawned_clone = true
-		
-		
+	
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	call_deferred("queue_free")
+	global_position.x-=840
 
 func stop():
 	multiplier = 0

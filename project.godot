@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://0fw0q1ldph4q"
 
 SaveManager="*uid://deffloj0p4kv7"
 SoundHandler="*uid://w54ex1d6ev88"
+GlobalValues="*uid://5m8apb5c6ken"
 
 [display]
 

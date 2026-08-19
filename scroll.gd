@@ -18,13 +18,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	global_position.x+=delta*speed*multiplier
-	if !spawned_clone && position.x >= 0:
-		var background: BG = duplicate()
-		bg.add_child(background)
-		background.multiplier = multiplier
-		background.global_position.x = global_position.x-540
-		background.global_position.y = 0
-		spawned_clone = true
+	#if !spawned_clone && position.x >= 0:
+		#var background: BG = duplicate()
+		#bg.add_child(background)
+		#background.multiplier = multiplier
+		#background.global_position.x = global_position.x-540
+		#background.global_position.y = 0
+		#spawned_clone = true
 		
 
 
@@ -37,4 +37,4 @@ func resume():
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	await visible_on_screen_notifier_2d.screen_exited
-	call_deferred("queue_free")
+	global_position.x-=1080

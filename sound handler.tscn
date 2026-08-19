@@ -25,3 +25,4 @@ bus = &"SFX"
 
 [node name="Lost" type="AudioStreamPlayer2D" parent="." unique_id=1758689165]
 stream = ExtResource("5_388c7")
+bus = &"SFX"

@@ -34,6 +34,7 @@ func _ready() -> void:
 				var ground: Ground = child
 				ground.stop()
 	directional_light_2d.enabled = SaveManager.saveData[SaveManager.light_key]
+	GlobalValues.destroyed_pillars.clear()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,10 +46,15 @@ func _process(delta: float) -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	if spawn_pillars:
-		var pillar: Area2D = pillar_scene.instantiate()
-		pillar_spawn.add_child(pillar)
-		pillar.global_position.x = global_position.x
-		pillar.global_position.y = randf_range(60, 260)
+		if GlobalValues.destroyed_pillars.is_empty():
+			var pillar: Area2D = pillar_scene.instantiate()
+			pillar_spawn.add_child(pillar)
+			pillar.global_position.x = global_position.x
+			pillar.global_position.y = randf_range(60, 260)
+		else:
+			var pillar: Area2D = GlobalValues.destroyed_pillars.pop_at(0)
+			pillar.global_position.x = global_position.x
+			pillar.global_position.y = randf_range(60, 260)
 		#print("spawned")
 	spawn_timer.start()
 
