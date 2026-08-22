@@ -49,11 +49,12 @@ func _on_spawn_timer_timeout() -> void:
 		if GlobalValues.destroyed_pillars.is_empty():
 			var pillar: Area2D = pillar_scene.instantiate()
 			pillar_spawn.add_child(pillar)
-			pillar.global_position.x = global_position.x
+			pillar.global_position.x = pillar_spawn.global_position.x
 			pillar.global_position.y = randf_range(60, 260)
 		else:
 			var pillar: Area2D = GlobalValues.destroyed_pillars.pop_at(0)
-			pillar.global_position.x = global_position.x
+			print("Spawned: ", GlobalValues.destroyed_pillars)
+			pillar.global_position.x = pillar_spawn.global_position.x
 			pillar.global_position.y = randf_range(60, 260)
 		#print("spawned")
 	spawn_timer.start()

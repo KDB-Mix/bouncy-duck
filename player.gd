@@ -81,11 +81,11 @@ func Jump():
 		level.points = 0
 		level.spawn_pillars = true
 		level.spawn_timer.start()
+		
 		for child in pillar_spawn.get_children():
-			GlobalValues.destroyed_pillars.append(child)
-			child.global_position.x+=1000
-			child.multiplier = 1
-			
+			child.call_deferred("queue_free")
+		GlobalValues.destroyed_pillars.clear()
+
 		global_position.y = 160
 		started = true
 	SoundHandler.jump.play(.06)
