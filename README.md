@@ -1,5 +1,6 @@
 # Bouncy Duck
-An open source game i made for fun
+An open source flappy bird knockoff i made for fun
+Just tap to jump, dodge obstacles, and compete on a highscore
 ___
 No ads and no in-app-purchases
 
