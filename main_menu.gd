@@ -36,3 +36,11 @@ func _on_skins_button_down() -> void:
 func _on_settings_button_down() -> void:
 	SoundHandler.click.play(.05)
 	get_tree().change_scene_to_packed(settings_window)
+
+
+func _on_github_button_down() -> void:
+	OS.shell_open("https://github.com/KDB-Mix/bouncy-duck")
+
+
+func _on_youtube_button_down() -> void:
+	OS.shell_open("https://www.youtube.com/@K.M.Studios")

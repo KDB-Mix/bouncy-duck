@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7hh81p2nos4u"]
+[gd_scene format=3 uid="uid://jp6me6ynart4"]
 
 [ext_resource type="Texture2D" uid="uid://dtptn6y0htugp" path="res://Background-parallax-mountains.png" id="1_mw4y2"]
 [ext_resource type="Script" uid="uid://dvtrjiqsr78qx" path="res://scroll.gd" id="2_a8qt6"]

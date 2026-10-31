@@ -22,7 +22,15 @@ region = Rect2(256, 0, 128, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe12f"]
 atlas = ExtResource("4_qe12f")
-region = Rect2(384, 0, 96, 96)
+region = Rect2(1248, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4wgq"]
+atlas = ExtResource("4_qe12f")
+region = Rect2(1536, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b0r0"]
+atlas = ExtResource("4_qe12f")
+region = Rect2(1824, 96, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_quixk"]
 atlas = ExtResource("2_0k4wn")
@@ -126,6 +134,19 @@ layout_mode = 2
 size_flags_vertical = 3
 layout_direction = 2
 
+[node name="Links" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=2028677717]
+layout_mode = 2
+
+[node name="Github" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Links" unique_id=1636185855]
+layout_mode = 2
+icon = SubResource("AtlasTexture_t4wgq")
+flat = true
+
+[node name="Youtube" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Links" unique_id=1131116235]
+layout_mode = 2
+icon = SubResource("AtlasTexture_8b0r0")
+flat = true
+
 [node name="Settings" type="Button" parent="CanvasLayer" unique_id=1936402277]
 anchors_preset = -1
 anchor_left = 0.97
@@ -187,7 +208,7 @@ texture = ExtResource("9_0k4wn")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="BG/Sprite2D" unique_id=1451711878]
 energy = 0.3
-height = 0.34
+height = 0.15
 
 [node name="Background 1" type="Sprite2D" parent="BG" unique_id=351656920]
 texture = SubResource("AtlasTexture_apvqp")
@@ -210,4 +231,6 @@ offset = Vector2(0, 180)
 
 [connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/skins" to="." method="_on_skins_button_down"]
 [connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/Links/Github" to="." method="_on_github_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/VBoxContainer/Links/Youtube" to="." method="_on_youtube_button_down"]
 [connection signal="button_down" from="CanvasLayer/Settings" to="." method="_on_settings_button_down"]
