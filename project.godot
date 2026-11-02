@@ -51,6 +51,10 @@ theme/default_font_multichannel_signed_distance_field=true
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+rendering/root_node_layout_direction=1
+
 [physics]
 
 common/physics_ticks_per_second=240

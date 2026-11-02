@@ -111,12 +111,14 @@ stretch_mode = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1144246203]
 layout_mode = 2
 size_flags_vertical = 3
+layout_direction = 2
 
 [node name="skins" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1800851550]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.3
+layout_direction = 2
 icon = SubResource("AtlasTexture_qe12f")
 flat = true
 
@@ -136,14 +138,17 @@ layout_direction = 2
 
 [node name="Links" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=2028677717]
 layout_mode = 2
+layout_direction = 2
 
 [node name="Github" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Links" unique_id=1636185855]
 layout_mode = 2
+layout_direction = 2
 icon = SubResource("AtlasTexture_t4wgq")
 flat = true
 
 [node name="Youtube" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/Links" unique_id=1131116235]
 layout_mode = 2
+layout_direction = 2
 icon = SubResource("AtlasTexture_8b0r0")
 flat = true
 
@@ -157,6 +162,7 @@ offset_left = -120.0
 offset_right = -80.0
 offset_bottom = 40.0
 scale = Vector2(3, 3)
+layout_direction = 2
 icon = SubResource("AtlasTexture_quixk")
 flat = true
 
